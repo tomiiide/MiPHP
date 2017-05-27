@@ -1,0 +1,20 @@
+Options -MultiViews
+
+RewriteEngine On
+
+#Prevent direct access to folders
+Options -Indexes
+
+
+#If the following conditions are true then rewrite the URL:
+
+#IF the requested filename is not a director
+RewriteCond %{REQUEST_FILENAME} !-d
+#IF the requested filename is not a file
+RewriteCond %{REQUEST_FILENAME} !-f
+#IF the requested filename is not a symbolic link
+RewriteCond %{REQUEST_FILENAME} !-l
+
+
+#rewrite the URL to index php  and pass the requested filename as a url parameter
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
