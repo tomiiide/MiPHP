@@ -12,9 +12,9 @@ define('ROOT',dirname(__DIR__).DIRECTORY_SEPARATOR);
 define('APP',ROOT. 'application'.DIRECTORY_SEPARATOR);
 define('VIEWS',APP.'views'.DIRECTORY_SEPARATOR);
 
-require APP. 'config/config.php';
-require ROOT. '/autoloader.php';
 
+require ROOT. '/autoloader.php';
+require APP. 'config/config.php';
 use Core\Application;
 
 $app = new Application();

@@ -9,7 +9,7 @@
 namespace Controller;
 
 
-class AdminController extends Core\Controller
+class AdminController extends \Core\Controller
 {
     public function index(){
         echo("You are at Admin/index");

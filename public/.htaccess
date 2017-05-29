@@ -7,8 +7,8 @@ Options -Indexes
 
 
 #If the following conditions are true then rewrite the URL:
-
-#IF the requested filename is not a director
+RewriteCond %{REQUEST_FILENAME} !-f
+#IF the requested filename is not a directory
 RewriteCond %{REQUEST_FILENAME} !-d
 #IF the requested filename is not a file
 RewriteCond %{REQUEST_FILENAME} !-f
