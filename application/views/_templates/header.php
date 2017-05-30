@@ -32,6 +32,9 @@
              <li class="nav-item">
                  <a class="nav-link" href="<?=URL;?>home/register">Register</a>
              </li>
+             <li class="nav-item">
+                 <a class="nav-link" href="<?=URL;?>admin/login">Login</a>
+             </li>
          </ul>
      </div>
  </nav>
