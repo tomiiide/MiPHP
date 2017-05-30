@@ -9,7 +9,9 @@
 namespace Model;
 
 
-class Admin
+use Core\Model;
+
+class Admin extends Model
 {
   public $username;
   public $password;

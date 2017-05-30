@@ -12,18 +12,24 @@ use \Model\User;
 class HomeController extends \Core\Controller
 {
 public function index(){
-    $user = $this->model('');
+
     View::render('index',["name" => "tomiiide"]);
 }
 
 public function register()
 {
+    $viewData =[];
     if(isset($_POST['register'])){
         $data = $_POST;
         $user = new User($data);
-        $user->register();
+        if($user->register()){
+            $viewData['message'] = "Registration successfull";
+        }
+        else{
+            $viewData['message'] = "Error while Registering.Please try again";
+        }
     }
-    
-    View::render('register');
+
+    View::render('register',$viewData);
 }
 }

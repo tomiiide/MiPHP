@@ -10,14 +10,17 @@
 
 
 namespace Model;
-use \Core\Database;
-Class User{
+
+use Core\Model;
+
+Class User extends Model {
     public $fullname;
     public $email;
     public $password;
     public $id;
 
     public function __construct($data){
+        parent::__construct();
         if(!empty($data)){
             foreach ($data as $key => $value) {
                 if(!empty($value)){
@@ -29,9 +32,10 @@ Class User{
     }
 
     public function register(){
-        $query = Database::connection()->prepare("INSERT INTO users VALUES(0,:fullname,:email,:password)");
-        $query->execute(array(":fullname" => $this->fullname,":email" => $this->email,":password" => md5($this->password)));
-        $this->id = Database::connection()->lastInsertId();
+        $query = $this->db->prepare("INSERT INTO users VALUES(0,:fullname,:email,:password)");
+        if(!$query->execute(array(":fullname" => $this->fullname,":email" => $this->email,":password" => md5($this->password))))
+            return false;
+        $this->id = $this->db->lastInsertId();
         return $this;
     }
 }

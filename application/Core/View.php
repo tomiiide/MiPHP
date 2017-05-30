@@ -12,6 +12,7 @@ class View
     public static function render($view, $data = []){
         $viewFile = VIEWS.$view.'.php';
         if(file_exists($viewFile)){
+            extract($data);
             require_once VIEWS.'_layout.php';
         }
     }
